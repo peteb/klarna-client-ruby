@@ -1,6 +1,7 @@
 require 'klarna/methods/get_addresses'
 require 'klarna/methods/reserve_amount'
 require 'klarna/methods/activate'
+require 'klarna/methods/cancel'
 
 module Klarna
   class Client
@@ -36,6 +37,14 @@ module Klarna
 
     def self.activate(params)
       new.activate(params)
+    end
+
+    def cancel(params)
+      call_method(Klarna::Methods::Cancel, params)
+    end
+
+    def self.cancel(params)
+      new.cancel(params)
     end
 
     private
